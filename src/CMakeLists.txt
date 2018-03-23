@@ -18,6 +18,7 @@ endif()
 include_directories(${ZLIB_INCLUDE_DIRS})
 
 add_library(ctb SHARED
+  gdaloverviewdataset.cpp
   GDALTile.cpp
   GDALTiler.cpp
   GDALDatasetReader.cpp
@@ -31,9 +32,11 @@ add_library(ctb SHARED
   GlobalMercator.cpp
   GlobalGeodetic.cpp)
 target_link_libraries(ctb ${GDAL_LIBRARIES} ${ZLIB_LIBRARIES})
+target_compile_definitions(ctb PRIVATE BANDMAP_TYPE=int*)
 
 # Install libctb
 set(HEADERS
+  gdaloverviewdataset.hpp
   Bounds.hpp
   BoundingSphere.hpp
   Coordinate.hpp
