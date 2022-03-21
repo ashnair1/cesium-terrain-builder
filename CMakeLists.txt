@@ -66,7 +66,7 @@ find_package(GDAL)
 if(NOT GDAL_FOUND)
   message(FATAL_ERROR "The GDAL library cannot be found on the system")
 endif()
-include_directories(${GDAL_INCLUDE_DIRS})
+include_directories(${GDAL_INCLUDE_DIR})
 
 # Build and install libctb
 include_directories("${PROJECT_SOURCE_DIR}/src")
