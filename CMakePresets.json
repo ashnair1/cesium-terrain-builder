@@ -1,0 +1,40 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 19,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "conda-release-linux",
+      "displayName": "Release build using Conda (Linux)",
+      "description": "Build with GDAL and Zlib from Conda env on Linux",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build-linux",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "GDAL_LIBRARY_DIR": "$env{CONDA_PREFIX}/lib",
+        "GDAL_LIBRARY": "$env{CONDA_PREFIX}/lib/libgdal.so",
+        "GDAL_INCLUDE_DIR": "$env{CONDA_PREFIX}/include",
+        "ZLIB_LIBRARY": "$env{CONDA_PREFIX}/lib/libz.so",
+        "ZLIB_INCLUDE_DIR": "$env{CONDA_PREFIX}/include"
+      }
+    },
+    {
+      "name": "conda-release-win",
+      "displayName": "Release build using Conda (Windows)",
+      "description": "Build with GDAL and Zlib from Conda env on Windows",
+      "generator": "NMake Makefiles",
+      "binaryDir": "${sourceDir}/build-windows",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "GDAL_LIBRARY_DIR": "$env{CONDA_PREFIX}/Library/lib",
+        "GDAL_LIBRARY": "$env{CONDA_PREFIX}/Library/lib/gdal.lib",
+        "GDAL_INCLUDE_DIR": "$env{CONDA_PREFIX}/Library/include",
+        "ZLIB_LIBRARY": "$env{CONDA_PREFIX}/Library/lib/zlib.lib",
+        "ZLIB_INCLUDE_DIR": "$env{CONDA_PREFIX}/Library/include"
+      }
+    }
+  ]
+}
