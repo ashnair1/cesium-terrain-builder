@@ -42,6 +42,9 @@
 #include <string>
 #include <sstream>
 
+// Note: gdal_compat.hpp is available for individual source files that need
+// GDAL version-specific compatibility features. Include it explicitly where needed.
+
 namespace ctb {
 
   /**
